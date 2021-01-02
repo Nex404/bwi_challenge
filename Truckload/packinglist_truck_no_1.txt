@@ -1,0 +1,9 @@
+Truck No. 1 should load the following items:
+Hardware                  Quantity      
+------------------------------------------------------------
+Mobiltelefon Outdoor	     157
+Mobiltelefon Heavy Duty	     220
+Mobiltelefon Büro   	      60
+Tablet outdoor groß 	     283
+
+The commulated utility equals 44764.0

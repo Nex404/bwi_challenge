@@ -44,21 +44,28 @@ def bubble_sort(array, position):
 def print_truck_load(truckload, truck_number):
 	initial_sentense = f"Truck No. {truck_number} should load the following items:"
 	print(initial_sentense)
-	print("Hardware".ljust(20) + "Quantity".center(20) + "Weight per Item".rjust(20))
-	print(60*"-")
+	print("Hardware".ljust(20) + "Quantity".center(20))
+	print(40*"-")
 	for index in range(len(truckload)):
-		print(f"{truckload[index][0]:20}\t{truckload[index][1]:8}\t{truckload[index][2]:15}")
+		print(f"{truckload[index][0]:20}\t{truckload[index][1]:8}")
+	
+	#calculate the utility
+	commulated_utility = 0
+	for index in range(len(truckload)):
+		commulated_utility += truckload[index][3] * truckload[index][1]
 	
 
+	
 	filename = "Truckload/packinglist_truck_no_" + str(truck_number) + ".txt"
 	with open(filename, "w") as outfile:
 		outfile.write(initial_sentense + "\n")
-		outfile.write("Hardware".ljust(20) + "Quantity".center(20) + "Weight per Item".rjust(20) + "\n")
+		outfile.write("Hardware".ljust(20) + "Quantity".center(20) + "\n")
 		outfile.write(60*"-"+"\n")
 		for index in range(len(truckload)):
-			outfile.write(f"{truckload[index][0]:20}\t{truckload[index][1]:8}\t{truckload[index][2]:15}\n")
-
-	print("\nYou also can find a list of the load in folder Truckload.")
+			outfile.write(f"{truckload[index][0]:20}\t{truckload[index][1]:8}\n")
+		outfile.write(f"\nThe commulated utility equals {commulated_utility}\n")
+	print(f"\nThe maxiumum Utility of this load is: {commulated_utility}")
+	print("You also can find a list of the load in folder Truckload.")
 
 #funktion to load as much as possible of one item to the truck
 def load_item(data, current_available_weight):
@@ -92,6 +99,7 @@ def load_truck(data, driver_weight, max_truck_weight, truck_number):
 			item.append(data[d][0]) 		#append name of item
 			item.append(num_loaded_items) 	#append number of items
 			item.append(data[d][2])			#append weight of item
+			item.append(data[d][3])			#append utility of each item
 			truckload.append(item)
 
 	

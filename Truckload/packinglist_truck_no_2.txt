@@ -1,0 +1,7 @@
+Truck No. 2 should load the following items:
+Hardware                  Quantity      
+------------------------------------------------------------
+Tablet outdoor groß 	      87
+Tablet Büro klein   	     599
+
+The commulated utility equals 29876.0
